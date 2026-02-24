@@ -17,35 +17,37 @@ const noJobsDiv = document.getElementById('no-jobs');
 
 //count update
 function calculateCount() {
-     const totalCards = allCardSection.querySelectorAll('.shadow-md').length;
-    const filteredCards = filterSection.querySelectorAll('.shadow-md').length;
-
-
-   totalCount.innerText = totalCards;
+    const totalCards = allCardSection.querySelectorAll('.shadow-md').length;
+    totalCount.innerText = totalCards;
     interviewCount.innerText = interviewList.length;
     rejectedCount.innerText = rejectedList.length;
 
-        if (!filterSection.classList.contains('hidden')) {
-        availableJobsCount.innerText = `${filteredCards} of ${totalCards} Jobs`;
+    // Only update Available Jobs count for Interview or Rejected filters
+    if (interviewFilterBtn.classList.contains('bg-blue-500')) {
+        availableJobsCount.innerText = `${interviewList.length} of ${totalCards} Jobs`;
+    } else if (rejectedFilterBtn.classList.contains('bg-blue-500')) {
+        availableJobsCount.innerText = `${rejectedList.length} of ${totalCards} Jobs`;
     } else {
+        // All filter visible
         availableJobsCount.innerText = `${totalCards} Jobs`;
     }
-
 }
+
+
+
 // jobs click
 function checkNoJobs() {
     const totalCards = allCardSection.querySelectorAll('.shadow-md').length;
-    const filteredCards = filterSection.querySelectorAll('.shadow-md').length;
+    const interviewCountCards = interviewList.length;
+    const rejectedCountCards = rejectedList.length;
 
-    // 1) All cards deleted and Filtered section visible but empty
-    
-    if ((totalCards === 0 && interviewList.length === 0 && rejectedList.length === 0) ||
-        (!filterSection.classList.contains('hidden') && filteredCards === 0)) {
+    if (totalCards === 0 && interviewCountCards === 0 && rejectedCountCards === 0) {
         noJobsDiv.classList.remove('hidden');
     } else {
         noJobsDiv.classList.add('hidden');
     }
 }
+
 //status
 function updateStatusStyle(statusBtn, status) {
     statusBtn.classList.remove('bg-[#EEF4FF]', 'text-[#002C5C]');
@@ -131,6 +133,12 @@ mainContainer.addEventListener('click',function(event){
 
         calculateCount();
         checkNoJobs();
+    //update filtered list when visible
+         if (!filterSection.classList.contains('hidden')) {
+            if (interviewFilterBtn.classList.contains('bg-blue-500')) renderList(interviewList);
+            if (rejectedFilterBtn.classList.contains('bg-blue-500')) renderList(rejectedList);
+        }
+
          
         //delete button
          if (event.target.classList.contains('delete-btn') || event.target.closest('.delete-btn')) {
