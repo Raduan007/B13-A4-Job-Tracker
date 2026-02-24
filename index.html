@@ -41,11 +41,14 @@
 
     <main class="w-[80%] mx-auto">
     
-         <h2 class="mb-6 text-[#002C5C] font-semibold">Available Jobs</h2>
+         <div class="flex justify-between">
+          <h2 class="mb-6 text-[#002C5C] font-semibold">Available Jobs</h2>
+          <h2 id="available-jobs-count">0 Jobs</h2>
+         </div>
       <div class="mb-6">
-        <button  id="all-filter-btn" onclick="toggleStyle('all-filter-btn')"    class="bg-[#3B82F6] px-10 py-2 rounded-[8px] text-white">All</button>
-        <button id="interview-filter-btn" onclick="toggleStyle('interview-filter-btn')" class="bg-[#FFFFFF] px-5 py-2 rounded-[8px] text-[#64748B] shadow-md" >Interview</button>
-        <button id="rejected-filter-btn" onclick="toggleStyle('rejected-filter-btn')" class="bg-[#FFFFFF] px-5 py-2 rounded-[8px] text-[#64748B] shadow-md" >Rejected</button>
+        <button  id="all-filter-btn" onclick="toggleStyle('all-filter-btn')"    class="bg-[#3B82F6]  px-10 py-2 rounded-[8px] text-white hover:text-blue-400 shadow-md">All</button>
+        <button id="interview-filter-btn" onclick="toggleStyle('interview-filter-btn')" class="bg-[#FFFFFF] px-5 py-2 rounded-[8px] text-[#64748B] hover:text-blue-400 shadow-md" >Interview</button>
+        <button id="rejected-filter-btn" onclick="toggleStyle('rejected-filter-btn')" class="bg-[#FFFFFF] px-5 py-2 rounded-[8px] text-[#64748B] hover:text-blue-400 shadow-md" >Rejected</button>
       </div>
 
       <!-- filter-card -->
@@ -55,7 +58,7 @@
 
       <section id="all-cards" class="space-y-6">
         <!-- card-1 -->
-        <div class="card-1-parent flex justify-between  rounded-md shadow-md p-6 ">
+        <div class="card-1-parent flex justify-between  rounded-md shadow-md p-6  hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
 
              <div class="card-1-child-1 space-y-6">
 
@@ -67,18 +70,18 @@
                   <button class="status  bg-[#EEF4FF] text-[#002C5C] px-3 py-2 rounded-sm">Not Applied</button>
                   <p class="notes  text-[#323B49]">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
                   <div class="space-x-3">
-                       <button class="interview-btn  px-5 py-1 rounded-[8px] text-[#10B981] border border-[#10B981] font-medium">interview</button>
-                       <button class="rejected-btn  px-5 py-1 rounded-[8px] text-[#EF4444] border  border-[#EF4444] font-medium">Rejected</button>
+                       <button class="interview-btn  px-5 py-1 rounded-[8px] text-[#10B981] hover:bg-green-200 border border-[#10B981] font-medium">Interview</button>
+                       <button class="rejected-btn  px-5 py-1 rounded-[8px] text-[#EF4444] hover:bg-red-200 border  border-[#EF4444] font-medium">Rejected</button>
                   </div>
              </div>
              <div class="card-1-child-2 ">
-                <button><img src="./image/Group 1.png" alt=""></button>
+                 <button class="delete-btn"><img src="./image/Group 1.png" alt="delete"></button>
              </div>
         </div>
         
 
         <!-- card-2 -->
-        <div class="card-2-parent flex justify-between rounded-md shadow-md p-6 ">
+        <div class="card-2-parent flex justify-between rounded-md shadow-md p-6  hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
 
              <div class="card-2-child-1 space-y-6">
 
@@ -90,18 +93,18 @@
                   <button class="status bg-[#EEF4FF] text-[#002C5C] px-3 py-2 rounded-sm">Not Applied</button>
                   <p class="notes text-[#323B49]">Create stunning web experiences for high-profile clients. Must have portfolio and experience with modern web design trends.</p>
                   <div class="space-x-3">
-                       <button class="interview-btn px-5 py-1 rounded-[8px] text-[#10B981] border border-[#10B981] font-medium">interview</button>
-                       <button class="rejected-btn px-5 py-1 rounded-[8px] text-[#EF4444] border  border-[#EF4444] font-medium">Rejected</button>
+                       <button class="interview-btn  px-5 py-1 rounded-[8px] text-[#10B981] hover:bg-green-200 border border-[#10B981] font-medium">Interview</button>
+                       <button class="rejected-btn  px-5 py-1 rounded-[8px] text-[#EF4444] hover:bg-red-200 border  border-[#EF4444] font-medium">Rejected</button>
                   </div>
              </div>
              <div class="card-2-child-2 ">
-                <button><img src="./image/Group 1.png" alt=""></button>
+                 <button class="delete-btn"><img src="./image/Group 1.png" alt="delete"></button>
              </div>
         </div>
 
 
          <!-- card-3 -->
-        <div class="card-3-parent flex justify-between rounded-md shadow-md p-6 ">
+        <div class="card-3-parent flex justify-between rounded-md shadow-md p-6  hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
 
              <div class="card-3-child-1 space-y-6">
 
@@ -112,19 +115,19 @@
                   <h3 class="jobType text-[#64748B]">Boston, MA • Full-time • $125,000 - $165,000</h3>
                   <button class="status bg-[#EEF4FF] text-[#002C5C] px-3 py-2 rounded-sm">Not Applied</button>
                   <p class="notes text-[#323B49]">Transform complex data into compelling visualizations. Required skills: D3.js, React, and strong analytical thinking.</p>
-                  <div class="space-x-3">
-                         <button class="interview-btn  px-5 py-1 rounded-[8px] text-[#10B981] border border-[#10B981] font-medium">interview</button>
-                       <button class="rejected-btn  px-5 py-1 rounded-[8px] text-[#EF4444] border  border-[#EF4444] font-medium">Rejected</button>
+                   <div class="space-x-3">
+                       <button class="interview-btn  px-5 py-1 rounded-[8px] text-[#10B981] hover:bg-green-200 border border-[#10B981] font-medium">Interview</button>
+                       <button class="rejected-btn  px-5 py-1 rounded-[8px] text-[#EF4444] hover:bg-red-200 border  border-[#EF4444] font-medium">Rejected</button>
                   </div>
              </div>
              <div class="card-3-child-2 ">
-                <button><img src="./image/Group 1.png" alt=""></button>
+                <button class="delete-btn"><img src="./image/Group 1.png" alt="delete"></button>
              </div>
         </div>
 
 
          <!-- card-4 -->
-        <div class="card-4-parent flex justify-between rounded-md shadow-md p-6 ">
+        <div class="card-4-parent flex justify-between rounded-md shadow-md p-6  hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
 
              <div class="card-4-child-1 space-y-6">
 
@@ -135,18 +138,18 @@
                   <h3 class="jobType text-[#64748B]">Seattle, WA • Full-time • $140,000 - $190,000</h3>
                   <button class="status bg-[#EEF4FF] text-[#002C5C] px-3 py-2 rounded-sm">Not Applied</button>
                   <p class="notes text-[#323B49]">Design and maintain scalable backend systems using Python and AWS. Work with modern DevOps practices and cloud infrastructure.</p>
-                  <div class="space-x-3">
-                          <button class="interview-btn  px-5 py-1 rounded-[8px] text-[#10B981] border border-[#10B981] font-medium">interview</button>
-                       <button class="rejected-btn  px-5 py-1 rounded-[8px] text-[#EF4444] border  border-[#EF4444] font-medium">Rejected</button>
+                   <div class="space-x-3">
+                       <button class="interview-btn  px-5 py-1 rounded-[8px] text-[#10B981] hover:bg-green-200 border border-[#10B981] font-medium">Interview</button>
+                       <button class="rejected-btn  px-5 py-1 rounded-[8px] text-[#EF4444] hover:bg-red-200 border  border-[#EF4444] font-medium">Rejected</button>
                   </div>
              </div>
              <div class="card-4-child-2 ">
-                <button><img src="./image/Group 1.png" alt=""></button>
+                <button class="delete-btn"><img src="./image/Group 1.png" alt="delete"></button>
              </div>
         </div>
 
          <!-- card-5 -->
-        <div class="card-5-parent flex justify-between rounded-md shadow-md p-6 ">
+        <div class="card-5-parent flex justify-between rounded-md shadow-md p-6  hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
 
              <div class="card-5-child-1 space-y-6">
 
@@ -157,19 +160,19 @@
                   <h3 class="jobType text-[#64748B]">Austin, TX • Full-time • $110,000 - $150,000</h3>
                   <button class="status bg-[#EEF4FF] text-[#002C5C] px-3 py-2 rounded-sm">Not Applied</button>
                   <p class="notes text-[#323B49]">Create beautiful and functional user interfaces for our suite of products. Strong design skills and frontend development expertise required.</p>
-                  <div class="space-x-3">
-                         <button class="interview-btn  px-5 py-1 rounded-[8px] text-[#10B981] border border-[#10B981] font-medium">interview</button>
-                       <button class="rejected-btn  px-5 py-1 rounded-[8px] text-[#EF4444] border  border-[#EF4444] font-medium">Rejected</button>
+                   <div class="space-x-3">
+                       <button class="interview-btn  px-5 py-1 rounded-[8px] text-[#10B981] hover:bg-green-200 border border-[#10B981] font-medium">Interview</button>
+                       <button class="rejected-btn  px-5 py-1 rounded-[8px] text-[#EF4444] hover:bg-red-200 border  border-[#EF4444] font-medium">Rejected</button>
                   </div>
              </div>
              <div class="card-5-child-2 ">
-                <button><img src="./image/Group 1.png" alt=""></button>
+                <button class="delete-btn"><img src="./image/Group 1.png" alt="delete"></button>
              </div>
         </div>
 
 
          <!-- card-6 -->
-        <div class="card-6-parent flex justify-between rounded-md shadow-md p-6 ">
+        <div class="card-6-parent flex justify-between rounded-md shadow-md p-6  hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
 
              <div class="card-6-child-1 space-y-6">
 
@@ -181,18 +184,18 @@
                   <button class="status bg-[#EEF4FF] text-[#002C5C] px-3 py-2 rounded-sm">Not Applied</button>
                   <p class="notes text-[#323B49]">Build enterprise applications with JavaScript and modern frameworks. We offer competitive compensation, health insurance, and professional development opportunities..</p>
                   <div class="space-x-3">
-                         <button class="interview-btn  px-5 py-1 rounded-[8px] text-[#10B981] border border-[#10B981] font-medium">interview</button>
-                       <button class="rejected-btn  px-5 py-1 rounded-[8px] text-[#EF4444] border  border-[#EF4444] font-medium">Rejected</button>
+                       <button class="interview-btn  px-5 py-1 rounded-[8px] text-[#10B981] hover:bg-green-200 border border-[#10B981] font-medium">Interview</button>
+                       <button class="rejected-btn  px-5 py-1 rounded-[8px] text-[#EF4444] hover:bg-red-200 border  border-[#EF4444] font-medium">Rejected</button>
                   </div>
              </div>
              <div class="card-6-child-2 ">
-                <button><img src="./image/Group 1.png" alt=""></button>
+                 <button class="delete-btn"><img src="./image/Group 1.png" alt="delete"></button>
              </div>
         </div>
 
 
          <!-- card-7 -->
-        <div class="card-7-parent flex justify-between rounded-md shadow-md p-6 ">
+        <div class="card-7-parent flex justify-between rounded-md shadow-md p-8  hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
 
              <div class="card-7-child-1 space-y-6">
 
@@ -203,19 +206,19 @@
                   <h3 class="jobType text-[#64748B]">Remote • Full-time • $120,000 - $160,000</h3>
                   <button class="status bg-[#EEF4FF] text-[#002C5C] px-3 py-2 rounded-sm">Not Applied</button>
                   <p class="notes text-[#323B49]">Join our fast-growing startup and work on our core platform. Experience with Node.js and React required. Great benefits and equity package included.</p>
-                  <div class="space-x-3">
-                         <button class="interview-btn  px-5 py-1 rounded-[8px] text-[#10B981] border border-[#10B981] font-medium">interview</button>
-                       <button class="rejected-btn  px-5 py-1 rounded-[8px] text-[#EF4444] border  border-[#EF4444] font-medium">Rejected</button>
+                 <div class="space-x-3">
+                       <button class="interview-btn  px-5 py-1 rounded-[8px] text-[#10B981] hover:bg-green-200 border border-[#10B981] font-medium">Interview</button>
+                       <button class="rejected-btn  px-5 py-1 rounded-[8px] text-[#EF4444] hover:bg-red-200 border  border-[#EF4444] font-medium">Rejected</button>
                   </div>
              </div>
              <div class="card-7-child-2 ">
-                <button><img src="./image/Group 1.png" alt=""></button>
+                 <button class="delete-btn"><img src="./image/Group 1.png" alt="delete"></button>
              </div>
         </div>
 
 
          <!-- card-8 -->
-        <div class="card-8-parent flex justify-between rounded-md shadow-md p-6 ">
+        <div class="card-8-parent flex justify-between rounded-md shadow-md p-6  hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
 
              <div class="card-8-child-1 space-y-6">
 
@@ -226,19 +229,21 @@
                   <h3 class="jobType text-[#64748B]">San Francisco, CA • Full-time • $130,000 - $175,000</h3>
                   <button class="status bg-[#EEF4FF] text-[#002C5C] px-3 py-2 rounded-sm">Not Applied</button>
                   <p class="notes text-[#323B49]">We are looking for an experienced Frontend Developer to build scalable web applications using React and TypeScript. You will work with a talented team on cutting-edge projects.</p>
-                  <div class="space-x-3">
-                        <button class="interview-btn  px-5 py-1 rounded-[8px] text-[#10B981] border border-[#10B981] font-medium">interview</button>
-                       <button class="rejected-btn  px-5 py-1 rounded-[8px] text-[#EF4444] border  border-[#EF4444] font-medium">Rejected</button>
+                   <div class="space-x-3">
+                       <button class="interview-btn  px-5 py-1 rounded-[8px] text-[#10B981] hover:bg-green-200 border border-[#10B981] font-medium">Interview</button>
+                       <button class="rejected-btn  px-5 py-1 rounded-[8px] text-[#EF4444] hover:bg-red-200 border  border-[#EF4444] font-medium">Rejected</button>
                   </div>
              </div>
              <div class="card-8-child-2 ">
-                <button><img src="./image/Group 1.png" alt=""></button>
+                <button class="delete-btn"><img src="./image/Group 1.png" alt="delete"></button>
              </div>
         </div>
-
-
-
       </section>
+    <div id="no-jobs" class="hidden w-[80%] mx-auto text-center m-4 space-y-3">
+  <img class="mx-auto" src="./image/assignment_7959593 1.png" alt="">
+  <h2 class="text-[#002C5C] font-semibold text-2xl">No jobs available</h2>
+  <p class="text-[#64748B]">Check back soon for new job opportunities</p>
+</div>
     </main>
 
 
