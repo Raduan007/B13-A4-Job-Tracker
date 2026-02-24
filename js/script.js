@@ -33,8 +33,6 @@ function calculateCount() {
     }
 }
 
-
-
 // jobs click
 function checkNoJobs() {
     const totalCards = allCardSection.querySelectorAll('.shadow-md').length;
