@@ -173,7 +173,7 @@ function renderList(list) {
                 <h3 class="jobType text-[#64748B]">${job.jobType}</h3>
                 <button class="status px-3 py-2 rounded-sm">${job.status}</button>
                 <p class="notes text-[#323B49]">${job.notes}</p>
-                <div class="space-x-3">
+                <div class="space-x-3 flex">
                     <button class="interview-btn px-5 py-1 rounded-[8px] text-[#10B981] hover:bg-green-200 border border-[#10B981] font-medium">Interview</button>
                     <button class="rejected-btn px-5 py-1 rounded-[8px] text-[#EF4444] hover:bg-red-200 border border-[#EF4444] font-medium">Rejected</button>
                 </div>
