@@ -4,7 +4,7 @@ let rejectedList = [];
 let totalCount = document.getElementById('total');
 let interviewCount = document.getElementById('interview');
 let rejectedCount = document.getElementById('rejected');
-let availableJobsCount = document.querySelector('h2:nth-of-type(2)');
+let availableJobsCount = document.getElementById('available-jobs');
 
 const totalFilterBtn = document.getElementById('all-filter-btn')
 const interviewFilterBtn = document.getElementById('interview-filter-btn')
@@ -13,7 +13,7 @@ const rejectedFilterBtn = document.getElementById('rejected-filter-btn')
 const allCardSection = document.getElementById('all-cards')
 const mainContainer = document.querySelector('main')
 const filterSection =document.getElementById('filtered-section')
-const noJobsDiv = document.getElementById('no-jobs');
+const noJobs = document.getElementById('no-jobs');
 
 //count update
 function calculateCount() {
@@ -37,13 +37,13 @@ function checkNoJobs() {
     const totalCards = allCardSection.querySelectorAll('.shadow-md').length;
     const filteredCards = filterSection.querySelectorAll('.shadow-md').length;
 
-    // 1) All cards deleted and Filtered section visible but empty
+    // 1) cards deleted and Filtered section visible but empty
     
-    if ((totalCards === 0 && interviewList.length === 0 && rejectedList.length === 0) ||
-        (!filterSection.classList.contains('hidden') && filteredCards === 0)) {
-        noJobsDiv.classList.remove('hidden');
+    if ((totalCards === 0 && interviewList.length === 0 && rejectedList.length === 0)
+         || (!filterSection.classList.contains('hidden') && filteredCards === 0)) {
+        noJobs.classList.remove('hidden');
     } else {
-        noJobsDiv.classList.add('hidden');
+        noJobs.classList.add('hidden');
     }
 }
 //status
@@ -85,8 +85,8 @@ if (id === 'interview-filter-btn'){
 }
   else if (id === 'rejected-filter-btn'){
         renderList(rejectedList);
-        allCardSection.classList.add('hidden');   // <-- fix here
-        filterSection.classList.remove('hidden'); // <-- fix here
+        allCardSection.classList.add('hidden');   
+        filterSection.classList.remove('hidden'); 
     }
 else{
      allCardSection.classList.remove('hidden');
@@ -109,22 +109,33 @@ mainContainer.addEventListener('click',function(event){
         const statusBtn = parentNode.querySelector('.status');
 
         // Interview
+        const interviewPush={ companyName,
+             skill,
+              jobType,
+              status: 'Interview',
+               notes 
+            }
         if (event.target.classList.contains('interview-btn')) {
             statusBtn.innerText = 'Interview';
             updateStatusStyle(statusBtn, 'Interview');
             rejectedList = rejectedList.filter(item => item.companyName !== companyName);
             if (!interviewList.find(item => item.companyName === companyName)) {
-                interviewList.push({ companyName, skill, jobType, status: 'Interview', notes });
+                interviewList.push(interviewPush);
             }
         }
 
         // Rejected
+        const rejectedPush = { companyName,
+             skill,
+              jobType, 
+              status: 'Rejected', 
+              notes }
         if (event.target.classList.contains('rejected-btn')) {
             statusBtn.innerText = 'Rejected';
             updateStatusStyle(statusBtn, 'Rejected');
             interviewList = interviewList.filter(item => item.companyName !== companyName);
             if (!rejectedList.find(item => item.companyName === companyName)) {
-                rejectedList.push({ companyName, skill, jobType, status: 'Rejected', notes });
+                rejectedList.push(rejectedPush);
             }
         }
     }
@@ -147,8 +158,10 @@ mainContainer.addEventListener('click',function(event){
 
  // Update filtered list if visible
         if (!filterSection.classList.contains('hidden')) {
-            if (interviewFilterBtn.classList.contains('bg-blue-500')) renderList(interviewList);
-            if (rejectedFilterBtn.classList.contains('bg-blue-500')) renderList(rejectedList); }
+            if (interviewFilterBtn.classList.contains('bg-blue-500'))
+                renderList(interviewList);
+            if (rejectedFilterBtn.classList.contains('bg-blue-500'))
+                 renderList(rejectedList); }
     
         }
         
