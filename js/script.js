@@ -115,13 +115,24 @@ mainContainer.addEventListener('click',function(event){
               status: 'Interview',
                notes 
             }
+
         if (event.target.classList.contains('interview-btn')) {
             statusBtn.innerText = 'Interview';
             updateStatusStyle(statusBtn, 'Interview');
+
             rejectedList = rejectedList.filter(item => item.companyName !== companyName);
-            if (!interviewList.find(item => item.companyName === companyName)) {
-                interviewList.push(interviewPush);
-            }
+            interviewList = interviewList.filter(item => item.companyName !== companyName); 
+           interviewList.push(interviewPush); 
+
+              if (!filterSection.classList.contains('hidden')) { 
+        if (interviewFilterBtn.classList.contains('bg-blue-500')) {
+            renderList(interviewList);
+        }
+        if (rejectedFilterBtn.classList.contains('bg-blue-500')) {
+            renderList(rejectedList); 
+        }
+    }
+
         }
 
         // Rejected
@@ -133,15 +144,23 @@ mainContainer.addEventListener('click',function(event){
         if (event.target.classList.contains('rejected-btn')) {
             statusBtn.innerText = 'Rejected';
             updateStatusStyle(statusBtn, 'Rejected');
+
             interviewList = interviewList.filter(item => item.companyName !== companyName);
-            if (!rejectedList.find(item => item.companyName === companyName)) {
-                rejectedList.push(rejectedPush);
-            }
+          rejectedList = rejectedList.filter(item => item.companyName !== companyName); 
+    rejectedList.push(rejectedPush); 
+
+    if (!filterSection.classList.contains('hidden')) { 
+        if (interviewFilterBtn.classList.contains('bg-blue-500')) {
+            renderList(interviewList); 
         }
+        if (rejectedFilterBtn.classList.contains('bg-blue-500')) {
+            renderList(rejectedList); 
+        }
+    }
     }
 
         calculateCount();
-        checkNoJobs();
+        checkNoJobs();}
          
         //delete button
          if (event.target.classList.contains('delete-btn') || event.target.closest('.delete-btn')) {
@@ -202,8 +221,7 @@ function renderList(list) {
         updateStatusStyle(statusBtn, job.status);
     }
 
-    calculateCount();
-    checkNoJobs();
+   
 }
 
 
